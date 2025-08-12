@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloombare - Grow Your Own Favorite Plants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontSize: {
+                        '11xl': '11rem',
+                        '12xl': '12rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        .text-shadow-big {
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+        }
+        .text-shadow-huge {
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+        .flower-bg {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="%2322c55e" opacity="0.1"/><path d="M100 40 L120 80 L100 100 L80 80 Z" fill="%2322c55e" opacity="0.2"/><path d="M160 100 L120 120 L100 100 L120 80 Z" fill="%2322c55e" opacity="0.2"/><path d="M100 160 L80 120 L100 100 L120 120 Z" fill="%2322c55e" opacity="0.2"/><path d="M40 100 L80 80 L100 100 L80 120 Z" fill="%2322c55e" opacity="0.2"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body class="bg-white font-main">
+    <main class="w-full min-h-screen bg-white">
+        <section class="flex flex-col xl:flex-row w-full min-h-screen">
+            <!-- Left Section -->
+            <div class="w-full xl:w-3/4 relative px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+                <!-- Header Content -->
+                <div class="relative z-10 mb-8 lg:mb-12">
+                    <!-- Background Title -->
+                    <h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-10xl font-bold text-main opacity-25 tracking-tight text-shadow absolute top-0 left-0 sm:left-[5%] lg:left-[10%] pointer-events-none">
+                        Bloombare
+                    </h1>
+                    
+                    <!-- Main Title -->
+                    <h1 class="text-shadow-big text-main-black opacity-90 text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mt-8 sm:mt-12 lg:mt-16 ml-0 sm:ml-[5%] lg:ml-[10%] leading-tight">
+                        Grow Your Own <br class="hidden sm:block"> 
+                        Favorite Plants
+                    </h1>
+                    
+                    <!-- Description -->
+                    <p class="text-shadow-huge opacity-75 text-lg sm:text-xl lg:text-xl mt-6 sm:mt-8 lg:mt-12 ml-0 sm:ml-[5%] lg:ml-[5%] tracking-wide max-w-2xl leading-relaxed">
+                        Blombare brings you unique, eco-friendly plants to brighten your space and spirit.<br class="hidden sm:block"> 
+                        Discover nature's beauty with our handpicked greenery and mindful care.
+                    </p>
+                </div>
+
+                <!-- Bottom Section with Button and Benefits -->
+                <div class="flex flex-col lg:flex-row items-start lg:items-end mt-8 lg:mt-16 relative z-20">
+                    <!-- White Flower (Hidden on mobile) -->
+                    <div class="hidden lg:block w-32 xl:w-40 mb-8 lg:mb-0">
+                        <div class="w-24 h-24 xl:w-32 xl:h-32 flower-bg opacity-60"></div>
+                    </div>
+                    
+                    <!-- Shop Button -->
+                    <div class="w-full lg:w-auto lg:flex-1 lg:pl-8 xl:pl-16 mb-8 lg:mb-0">
+                        <button type="button" class="w-full sm:w-80 lg:w-96 h-16 lg:h-20 flex items-center justify-center bg-main text-xl lg:text-2xl text-white shadow-xl font-bold rounded-full transition-all duration-300 ease-in-out hover:text-white hover:shadow-2xl hover:scale-105 hover:bg-main-hover">
+                            Shop Now
+                        </button>
+                    </div>
+                    
+                    <!-- Daylight Benefit Card -->
+                    <div class="lg:flex-1 lg:flex lg:justify-end relative">
+                        <!-- Large Flower Image (Desktop) -->
+                        <div class="hidden xl:block absolute -top-32 -right-40 2xl:-right-32 w-96 h-96 z-10">
+                            <div class="w-full h-full flower-bg opacity-30 scale-150"></div>
+                        </div>
+                        
+                        <!-- Large Flower Image (Mobile/Tablet) -->
+                        <div class="xl:hidden w-full flex justify-center mb-6">
+                            <div class="w-64 sm:w-80 md:w-96 h-64 sm:h-80 md:h-96 flower-bg opacity-20"></div>
+                        </div>
+                        
+                        <div class="relative z-20 lg:mr-8 xl:mr-16">
+                            <!-- Vector Arrow -->
+                            <div class="flex justify-center lg:justify-end mb-4">
+                                <div class="w-16 h-16 bg-main rounded-full flex items-center justify-center opacity-75">
+                                    <i class="bi bi-arrow-down-right text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Daylight Card -->
+                            <div class="flex gap-4 h-20 p-4 justify-center items-center bg-main rounded-lg text-white text-xl sm:text-2xl w-full sm:w-64 mx-auto lg:mx-0">
+                                <i class="bi bi-brightness-high text-2xl sm:text-3xl"></i>
+                                <div class="flex flex-col leading-tight font-main">
+                                    <h3 class="text-xl sm:text-2xl font-semibold">Daylight</h3>
+                                    <h4 class="text-lg sm:text-xl">9 To 10 Hours</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Section -->
+            <div class="w-full xl:w-1/4 bg-main p-6 lg:p-8 relative min-h-screen xl:min-h-[90vh]">
+                <!-- Weather Benefit Card -->
+                <div class="flex flex-col sm:flex-row xl:flex-col items-center gap-4 mb-8 xl:mb-12">
+                    <!-- Vector Arrow -->
+                    <div class="flex justify-center xl:justify-start xl:ml-8 mb-4 xl:mb-0">
+                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <i class="bi bi-arrow-down-right text-white text-2xl opacity-75"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Weather Card -->
+                    <div class="flex gap-4 h-20 p-4 justify-center items-center bg-main-light rounded-lg text-main text-xl sm:text-2xl w-full sm:w-64 xl:w-full max-w-xs xl:max-w-none">
+                        <i class="bi bi-cloud-sun text-2xl sm:text-3xl"></i>
+                        <div class="flex flex-col leading-tight font-main">
+                            <h3 class="text-xl sm:text-2xl font-semibold">Weather</h3>
+                            <h4 class="text-lg sm:text-xl">9 To 10 Days</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wetness Benefit Card -->
+                <div class="flex flex-col sm:flex-row xl:flex-col items-center gap-4 xl:mt-24">
+                    <!-- Vector Arrow -->
+                    <div class="flex justify-center xl:justify-end xl:mr-8 mb-4 xl:mb-0 order-2 xl:order-1">
+                        <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center transform rotate-90 xl:rotate-90">
+                            <i class="bi bi-arrow-down-right text-white text-2xl opacity-75"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Wetness Card -->
+                    <div class="flex gap-4 h-20 p-4 justify-center items-center bg-main-light rounded-lg text-main text-xl sm:text-2xl w-full sm:w-64 xl:w-full max-w-xs xl:max-w-none order-1 xl:order-2">
+                        <i class="bi bi-droplet text-2xl sm:text-3xl"></i>
+                        <div class="flex flex-col leading-tight font-main">
+                            <h3 class="text-xl sm:text-2xl font-semibold">Wetness</h3>
+                            <h4 class="text-lg sm:text-xl">90%</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative Elements for larger screens -->
+                <div class="hidden xl:block absolute bottom-8 left-8 opacity-20">
+                    <div class="w-32 h-32 flower-bg"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+      <!-- Right content: weather + BigFlower on desktop -->
+      <nav class="w-[100%] md:w-1/4 bg-[var(--main-color)] p-4 relative flex flex-col justify-between ">
+          
+          <!-- BigFlower image on small screen: show at bottom middle -->
+          <div class="md:hidden mt-12 w-1/2 mx-auto relative">
+            <img src="../images/BigFlowerpng.png" alt="Big Flower" class="w-full h-auto" />
+          </div>
+        </nav>
+        
+      <!-- BigFlower on desktop, positioned absolutely -->
+      <div class="hidden md:block absolute top-1/2 right-[-25%] -translate-y-1/2 w-48 h-auto z-10">
+        <img src="../images/BigFlowerpng.png" alt="Big Flower" class="w-full h-auto" />
+      </div>
+
+      <!-- Weather info middle -->
+      <div class="flex items-center gap-4 mb-6">
+        <img src="../images/VectorW.png" alt="Weather Icon" class="w-10 sm:w-[70px] opacity-75" />
+        <div class="flex gap-3 items-center bg-[var(--main-color2)] rounded min-w-[140px] max-w-[200px] w-full h-[10vh] p-3 text-[var(--main-color)]">
+          <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+          <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+            <h1 class="text-lg sm:text-2xl">Weather</h1>
+            <h1 class="text-xs sm:text-xl">9 To 10 Days</h1>
+          </span>
+        </div>
+      </div>
+
+      <!-- Wetness info bottom -->
+      <div class="flex items-center gap-4">
+        <img src="../images/VectorW.png" alt="Wetness Icon" class="w-10 sm:w-[70px] rotate-90 opacity-75" />
+        <div class="flex gap-3 items-center bg-[var(--main-color2)] rounded min-w-[140px] max-w-[200px] w-full h-[10vh] p-3 text-[var(--main-color)]">
+          <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+          <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+            <h1 class="text-lg sm:text-2xl">Wetness</h1>
+            <h1 class="text-xs sm:text-xl">90%</h1>
+          </span>
+        </div>
+      </div>
+    </nav>
+</body>
+</html>
+</body>
+</html>
+
+
+<!-- Plant Image and Button -->
+                <div class="w-full mt-[8%] sm:mt-[50%] md:mt-[60%] lg:mt-[8%] relative">
+                    <img src="../images/whiteFlower.png" alt="White Flower" class="w-[25%] sm:w-[30%] md:w-[35%] lg:w-[38%] h-[45%] mt-[8%]">
+                    <div class="w-full flex justify-center pe-[10%] sm:ps-[10%]">
+                        <button type="button" class="w-[50%] sm:w-[50%] h-[8vh] sm:h-[10vh] flex items-center justify-center bg-[var(--main-color)] text-xl text-white 
+                            shadow-xl font-bold rounded-full transition-all duration-300 ease-in-out hover:text-white hover:shadow-2xl 
+                            hover:scale-105 hover:bg-[var(--main-hover-btn)] mt-[-50%]">
+                            Shop Now
+                        </button>
+                    </div>
+                    <!-- Big Flower Image -->
+                    <div class="w-full relative overflow-hidden sm:h-[40vh] md:h-[50vh] lg:h-auto">
+                        <img src="../images/BigFlowerpng.png" alt="Big Flower" class="w-[65%] absolute top-[77.6%] sm:top-0 md:top-0 right-[-34%] sm:right-0 md:right-0 transform -translate-y-[46.8%] sm:-translate-y-0 md:-translate-y-0 h-auto z-10 sm:w-[50%] md:w-[50%] object-cover object-right lg:object-contain lg:right-[-20%]">
+                        <div class="benefit w-[40%] pt-0 sm:pt-[20%] ms-[90%] sm:ms-[20%] lg:ms-[20%]">
+                            <img src="../images/Vector.png" alt="Vector Icon" class="w-10 sm:w-[70px] opacity-75">
+                            <span class="mt-2 sm:mt-4 flex gap-3 sm:gap-5 h-[10vh] p-3 justify-center items-center bg-[var(--main-color)] 
+                                rounded text-white text-2xl w-[150px] sm:w-[200px]">
+                                <i class="bi bi-brightness-high mb-3 text-xl sm:text-3xl"></i>
+                                <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+                                    <h1 class="text-sm sm:text-2xl">Daylight</h1>
+                                    <h1 class="text-sm sm:text-xl">9 To 10 Hours</h1>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="hidden sm:block w-[25%] h-full bg-[var(--main-color)] p-4 sm:p-0 relative">
+                <!-- Weather in the middle -->
+                <div class="absolute top-1/2 -translate-y-1/2 flex items-center gap-4">
+                    <img src="../images/VectorW.png" alt="Weather Icon" class="w-10 sm:w-[70px] opacity-75">
+                    <div class="flex gap-3 items-center bg-[var(--main-color2)] rounded min-w-[140px] max-w-[200px] w-full h-[10vh] p-3 text-[var(--main-color)]">
+                        <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+                        <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+                            <h1 class="text-lg sm:text-2xl">Weather</h1>
+                            <h1 class="text-xs sm:text-xl">9 To 10 Days</h1>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Wetness at bottom -->
+                <div class="absolute bottom-[20%] left-[10%] flex items-center gap-4">
+                    <img src="../images/VectorW.png" alt="Wetness Icon" class="w-10 sm:w-[70px] rotate-90 opacity-75">
+                    <div class="flex gap-3 items-center bg-[var(--main-color2)] rounded min-w-[140px] max-w-[200px] w-full h-[10vh] p-3 text-[var(--main-color)]">
+                        <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+                        <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+                            <h1 class="text-lg sm:text-2xl">Wetness</h1>
+                            <h1 class="text-xs sm:text-xl">90%</h1>
+                        </span>
+                    </div>
+                </div>
+            </div>

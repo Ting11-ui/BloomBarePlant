@@ -1,0 +1,161 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Koulen&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --main-color: #84BC9E;
+    --main-color2: #F9F6F0;
+    --main-color3: #F4F4F2;
+    --main-balck: #000000;
+    --main-hover: #80caa3;
+    --main-hover-btn: #9adcb9;
+    --main-font-family : "Poppins", sans-serif;
+     --main-font-family1: "Carlito", sans-serif; 
+    
+}
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 0;
+  background: currentColor; /* uses text color from Tailwind */
+  border-radius: 15px;
+  transition: width 0.5s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.text-shadowBig{
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+}
+.text-shadowHuge{
+  text-shadow: 2px 4px 4px rgba(0,0,0,0.6);
+}
+
+
+@media (min-width: 767px) and (max-height: 1024px) {
+  section .rightSide{
+    top: 50%;
+  }
+
+  .rightSide>.image{
+    top: 100%;
+    margin-top: 8%;
+  }
+
+  .sectionFirst .button{
+    top:10%;
+  }
+  .weather{
+    margin-top: -35%;
+  }
+  .Daylight{
+    margin-top: -35%;
+  }
+}
+
+
+@media (min-width: 800px) {
+
+  section .rightSide{
+    height: 85vh;
+    top: 34.5%;
+  }
+  .weather {
+    top: 54%;
+  }
+  .wetness{
+    top: 68%;
+  }
+  .Daylight{
+    top: 63%;
+  }
+}
+
+@media (min-width: 820px ) {
+  section .rightSide{
+    height: 85vh;
+    top: 31.3%;
+  }
+  
+  .weather{
+     margin-top: -20%;;
+  }
+
+  .Daylight{
+    margin-top: -15%;;
+  }
+ 
+}
+
+@media (min-width: 834px)  {
+  section .rightSide{
+    height: 85vh;
+    top: 31.3%;
+  }
+
+  .weather{
+    top:48%;
+  }
+}
+
+@media (min-width: 884px)  {
+ 
+  .whiteflower{
+    width: 40%;
+    height: 30%;
+   
+    margin-top: -10px; 
+    
+  }
+
+  .button{
+    margin-top: 40%;
+  }
+
+
+  section .rightSide{
+    height: 78vh;
+    top: 33%;
+  }
+
+  .weather{
+    top:48%;
+  }
+  .button{
+    top: 30%;
+  }
+
+}
+
+@media (min-width: 1024px)  {
+
+  .whiteflower{
+    width: 30%;
+    margin-bottom: 60%;
+  }
+
+  .buttonClick{
+    margin-top: 10%;
+  }
+  .button{
+    padding-top: 100%;
+    background-color: black ;
+  }
+  .weather{
+    margin-top: 5%;
+  }
+}
