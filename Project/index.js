@@ -9,20 +9,18 @@ const header = [
 const menu = document.getElementById('menu');
 const cancel = document.getElementById('cancel');
 const offcanvas = document.getElementById('offcanvas');
-const imgLeaf = document.getElementById('imgLeaf');
-const rightSide = document.getElementById('rightSide');
 
-
-//offcanvas 
-menu.onclick = () =>{z
+// Offcanvas toggle
+menu.onclick = () => {
     offcanvas.classList.remove('-translate-x-full');
     offcanvas.classList.add('translate-x-0');
 }
 
-cancel.onclick = () =>{
+cancel.onclick = () => {
     offcanvas.classList.remove('translate-x-0');
     offcanvas.classList.add('-translate-x-full');
 }
+
 
 
 
