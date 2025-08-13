@@ -14,7 +14,7 @@ const rightSide = document.getElementById('rightSide');
 
 
 //offcanvas 
-menu.onclick = () =>{
+menu.onclick = () =>{z
     offcanvas.classList.remove('-translate-x-full');
     offcanvas.classList.add('translate-x-0');
 }
