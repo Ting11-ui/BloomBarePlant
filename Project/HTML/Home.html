@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>BloomBare</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <header id="header" class="w-full h-[10vh] bg-[var(--main-color3)] shadow-md flex items-center sticky top-0 z-50">
+        <!-- Mobile Menu Button -->
+        <div class="menu block lg:hidden ps-4">
+            <button id="menu" class="text-3xl text-[var(--main-color)] font-bold">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Offcanvas Menu -->
+        <div id="offcanvas" class="fixed lg:hidden top-0 left-0 w-[70%] h-full bg-[var(--main-color2)] transform -translate-x-full transition-transform duration-300 z-[999] overflow-y-auto flex flex-col">
+
+            <div class="relative w-full flex justify-between items-center px-4 pt-5">
+                <h1 class="text-[var(--main-color)] font-bold text-3xl">BloomBare</h1>
+                <img src="img/Leaves.png" alt="logo" class="w-7 absolute top-4 left-[54%] md:left-[31%]" />
+                <button id="cancel" class="text-3xl text-[var(--main-color)] absolute top-4 right-4">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="flex flex-col items-start ps-10 gap-6 mt-10 text-[var(--main-color)] text-2xl font-semibold">
+                <li><a href="Home.html" class="nav-link">HOME</a></li>
+                <li><a href="Plants.html" class="nav-link">PLANTS</a></li>
+                <li><a href="About.html" class="nav-link">ABOUT</a></li>
+                <li><a href="Contact.html" class="nav-link">CONTACT US</a></li>
+            </ul>
+
+            <!-- Offcanvas image -->
+            <div class="m-auto my-5 max-w-[40%]">
+                <img src="img/offcanvas.png" alt="Offcanvas Visual" class="w-full h-auto object-contain" />
+            </div>
+
+            <!-- Privacy, Social, and Copyright -->
+            <div class="text-[var(--main-color)] flex flex-col sm:items-center sm:justify-between mt-auto px-6 py-4 gap-6 text-sm sm:text-base">
+                <!-- Privacy / Terms -->
+                <div class=" gap-3 sm:gap-6">
+                    <a href="#" class="hover:text-[var(--main-hover)] ">Privacy Policy</a>
+                    <a href="#" class="hover:text-[var(--main-hover)] ">Cookie Policy</a>
+                    <a href="#" class="hover:text-[var(--main-hover)] ">Terms of Use</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex gap-6 text-xl">
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-twitter"></i></a>
+                    <div>
+                        <p class="text-sm pt-1">Tel: +92-882-4235</p>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-start sm:text-right text-xs sm:text-sm">
+                    <p>&copy; 2025 Bloombare. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="relative w-[20%] sm:w-auto ps-5 flex justify-start">
+            <h1 class="text-[var(--main-color)] font-bold text-2xl sm:text-4xl px-9">BloomBare</h1>
+            <img id="imgLeaf" src="img/Leaves.png" alt="logo" class="w-7 sm:w-10 absolute -top-2 sm:-top-3 left-44 sm:left-[84%]" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="MenuDesk hidden lg:flex w-full items-center ps-[15%]">
+            <ul class="flex gap-10 text-3xl text-[var(--main-color)] font-[var(--main-font-family)] font-bold whitespace-nowrap">
+                <li><a href="Home.html" class="nav-link">HOME</a></li>
+                <li><a href="Plants.html" class="nav-link">PLANTS</a></li>
+                <li><a href="About.html" class="nav-link">ABOUT</a></li>
+                <li><a href="Contact.html" class="nav-link">CONTACT US</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Icons -->
+         <div class="flex w-full justify-end gap-4 text-2xl text-[var(--main-color)] font-bold pr-4 relative">
+            <i id="search-icon" class="bi bi-search cursor-pointer hover:text-[var(--main-hover)]"></i>
+            <i class="bi bi-heart cursor-pointer hover:text-[var(--main-hover)]"></i>
+            <div class="relative">
+                <a href="Cart.html" class="block">
+                    <i class="bi bi-bag cursor-pointer hover:text-[var(--main-hover)]"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center hidden">0</span>
+                </a>
+            </div>
+            <i class="bi bi-person sm:text-3xl hover:text-[var(--main-hover)]"></i>
+            
+            <!-- Search Modal Dropdown -->
+            <div id="search-modal" class="search-modal absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl p-3 w-80 z-50">
+                <input type="text" id="search-input" class="w-full p-2 text-sm border border-gray-300 rounded-md outline-none focus:border-[var(--main-color)] transition-colors" placeholder="Search">
+                <div id="search-results" class="mt-2 max-h-60 overflow-y-auto"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="w-full h-[90vh] bg-white flex">
+        <section class="sectionFirst w-full md:w-[70%] lg:w-[75%] h-[90vh] mt-8">
+            <nav class="flex flex-col justify-center items-center relative md:ps-[0%] ">
+                <h1 class="text-shadow text-[var(--main-color)] text-7xl md:text-8xl lg:text-10xl font-bold tracking-wide opacity-65">BloomBare</h1>
+                <p class="absolute top-[60%] left-[5%] sm:left-[10%] md:left-[15%] lg:left-[20%] 
+                    text-shadowHuge text-4xl md:text-5xl lg:text-7xl 
+                    text-[var(--main-black)] font-bold opacity-65
+                    max-w-[400px] sm:max-w-[500px] md:max-w-none px-14 md:px-10 lg:px-10">
+                Grow Your Own <br> Favorite Plants
+                </p>
+
+                <p class="text-shadowBig md:w-[75%] sm:w-[70%] text-md md:text-xl lg:text-xl absolute top-[50%] md:top-[95%] lg:top-[85%] translate-y-20 lg:translate-y-[120px] p-6 lg:ms-8 font-family-[var(--main-font-family1)] font-semibold opacity-60 " >
+                    Blombare brings you unique, eco-friendly plants to brighten your space and spirit.
+                    Discover nature’s beauty with our handpicked greenery and mindful care.
+                </p>           
+            </nav>
+            
+            
+            <nav class="whiteflower objecfit-contain text-shadow w-[30%] md:w-[40%] lg:w-[20%] mt-[50%] lg:mt-[-21%] ">
+                <img src="img/whiteFlower.png" alt="" class="white mt-full md:mt-[70%]">
+            </nav>
+            
+            <nav class="buttonClick flex justify-center items-center mt-[-50%] md:mt-[-85%] ">
+                <button type="button" 
+                    class="button lg:flex lg:flex-col text-shadow 
+                    w-[50%]  md:w-[40%] lg:w-[25%] px-8 py-4
+                    text-2xl md:text-xl lg:text-xl 
+                    font-semibold text-white bg-[var(--main-color)]   
+                    md:mt-[5%] lg:mt-[35%] ms-[10%] lg:me-[25%]
+                    rounded-full shadow-xl transition-all duration-300 ease-in-out 
+                    hover:text-white hover:shadow-2xl hover:scale-15 hover:bg-[var(--main-hover-btn)]">
+                    Shop Me
+                </button>
+            </nav>
+
+
+                    <!-- Mobile section -->
+            <nav class="block md:hidden lg:hidden bg-[var(--main-color)] w-[96%] h-[40vh] m-auto relative mt-[55%] ">
+
+                <!-- First Row - Center -->
+                <div class="w-[40%] h-auto absolute left-[62%] top-[5%] ">
+                    <div class="p-3 gap-3 flex justify-end pe-8 ms-2" >
+                        <img src="img/Vector.png" alt="" class="w-[30%] h-[35%] mt-[35%]  ">
+                        <div class="min-w-[130px] text-[var(--main-color)] gap-3 h-16 bg-[var(--main-color3)] rounded flex justify-center items-center shadow-xl text-shadow">
+                            <i class="bi bi-brightness-high text-xl "></i>
+                            <span>
+                                <h1 class=" text-xs font-bold">Daylight</h1>
+                                <h1 class="text-xs font-[var(--main-font-family1)]">9 To 10 Hours</h1>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row - Right -->
+                <div class="w-[30%] h-auto absolute top-[40%] left-[2%] ">
+                    <div class="-p-2 gap-4  ">
+                        <img src="img/Vector.png" alt="" class="w-[30%] h-[35%] ms-full mb-3 ">
+                        <div class=" min-w-[130px] text-[var(--main-color)]  bg-[var(--main-color3)] rounded flex justify-center items-center gap-3 h-16 shadow-xl text-shadow">
+                            <i class="bi bi-brightness-high text-xl "></i>
+                            <span>
+                                <h1 class="text-xs font-bold">Weather</h1>
+                                <h1 class=" text-xs font-[var(--main-font-family1)]">9 To 10 Hours</h1>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+                <!-- Third Row - Full Width -->
+            <div class="w-[40%] h-auto absolute left-[57%] top-[35%] ">
+                <div class="p-6 gap-4 ">
+                    <!-- Image -->
+                    <img src="img/Vector.png" alt="" class="w-[30%] h-[35%] mb-3 rotate-90">
+
+                    <!-- Info Box -->
+                    <div class="min-w-[130px] text-[var(--main-color)] bg-[var(--main-color3)] rounded flex justify-center items-center gap-3 h-16 shadow-xl text-shadow">
+                        <i class="bi bi-brightness-high text-xl"></i>
+                        <span>
+                            <h1 class="text-xs font-bold">Wetness</h1>
+                            <h1 class="text-xs font-[var(--main-font-family1)]">9 To 10 Hours</h1>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+                 <!-- Center Image -->
+                <div class="w-[25%] top-[34%] right-[36.5%] absolute  ">
+                    <img src="img/BigFlower.png" alt="">
+                </div>
+            </nav>
+        
+        </section>
+
+        <section class=" w-full hidden md:block lg:block md:w-[30%] h-[90vh] bg-[var(--main-color)] relative ">
+            <div class="rightSide absolute w-[120%] lg:w-[70%] top-30 md:top-[56.7%] lg:top-[100%] lg:mt-[-17%] -translate-x-1/2 flex flex-col justify-center items-center">
+                <img src="img/BigFlower.png" alt="" class="image ">
+            </div>
+
+
+            <nav class="hidden  md:flex md:flex-col lg:block  ms-1">
+                <div class=" weather w-[97%] top-[45%] md:top-[54%] lg:top-[22%] xl:top-[20%] absolute flex items-center justify-center">
+                    <!-- Vector Image -->
+                    <img src="img/Vector.png" alt="" class="w-[25%] h-[35%] lg:w-[15%] lg:h-[20%] gap-3 opacity-90">
+
+                    <!-- Wetness Card -->
+                    <div class=" w-full flex justify-center">
+                        <div class="lg:w-[70%] flex gap-3 justify-center items-center bg-[var(--main-color2)] rounded w-full h-[10vh] p-4 text-[var(--main-color)]">
+                            <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+                            <span class=" flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+                                <h1 class="text-xl font-bold">Weather</h1>
+                                <h1 class="text-md font-[var(--main-font-family1)]">90%</h1>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <nav class="hidden md:block lg:block ">
+                <div class="wetness w-[70%] top-[60%] md:top-[68%] lg:top-[45%] left-[20%] absolute flex flex-col items-center justify-end">
+                    <!-- Vector Image -->
+                   <img src="img/Vector.png" alt="" class="w-[30%] lg:w-[17%] h-[35%] lg:h-[20%] mt-10 mb-3 lg:mr-[45%] rotate-90 opacity-90">
+
+                    <!-- Wetness Card -->
+                    <div class=" w-full flex justify-end">
+                        <div class="lg:w-[70%] flex gap-3 justify-center items-center bg-[var(--main-color2)] rounded w-full h-[10vh] p-4 text-[var(--main-color)]">
+                            <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+                            <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+                                <h1 class="text-xl font-bold">Wetness</h1>
+                                <h1 class="text-md font-[var(--main-font-family1)]">9 to 10 day</h1>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <nav class="hidden md:block lg:block  ">
+                <div class="Daylight w-full top-[55%] lg:top-[55%] md:top-[68%] absolute flex flex-col items-center justify-center -translate-x-[145%] ">
+                    <!-- Vector Image -->
+                    <img src="img/VectorW.png" alt="" class="w-[30%] h-[35%] lg:w-[15%] lg:h-[15%] mt-10 mb-4 lg:ms-[100%]">
+
+                    <!-- Wetness Card -->
+                    <div class=" w-[75%] lg:ms-[60%] flex justify-center ">
+                        <div class="lg:w-[70%] flex gap-3 justify-center items-center bg-[var(--main-color2)] rounded w-full h-[10vh] p-4 text-[var(--main-color)] ">
+                            <i class="bi bi-brightness-high text-xl sm:text-3xl"></i>
+                            <span class="flex flex-col leading-tight [font-family:var(--main-font-family1)]">
+                                <h1 class="text-xl font-bold">Daylight</h1>
+                                <h1 class="text-md font-[var(--main-font-family1)]">9 to 10 hour</h1>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </nav> 
+        </section>
+    </main>
+
+    <main class="mt-[70%] sm:mt-[50%] md:mt-[20%] lg:mt-[5%]">
+        <div class="flex justify-center items-center">
+            <h1 class="text-2xl md:text-4xl lg:text-6xl mt-4 font-semibold text-[var(--main-color)] mb-1 text-center text-shadow underline underline-offset-8 ">A Peaceful Way to Manage</h1>
+        </div>
+        <!-- <div class="flex justify-center">
+            <img src="img/Underline.png" alt="" class="w-[40%] h-2  ">
+        </div> -->
+            <section class="w-full h-[90vh] flex flex-col lg:flex-row">
+        <!-- Image Section - Left 50% -->
+        <nav class="container-fluid w-full h-[90vh] lg:w-[50%] ">
+            <div class="container w-full flex justify-center pt-[20%] relative " >
+                <div class="w-[30%] absolute left-[10%] top-[60%] mt-[19.5%] translate-x-[18%] rotate-12">
+                    <img src="img/EllipseLeft.png" alt="">
+                </div>
+                <div class="w-[45%] absolute top-10 z-10 ">
+                    <img src="img/CircleFlower.png" alt="" >
+                </div>
+                <div class="w-[50%] absolute z-0">
+                    <img src="img/EllipseCenter.png" alt="">
+                </div>
+                <div class="w-[30%] absolute right-[15%] rotate-17 ">
+                    <img src="img/EllipseRight.png" alt="" class="">
+                </div>
+            </div>
+        </nav>
+
+    <!-- text-50% -->
+            <div class="w-full h-[70vh] lg:w-[60%] lg:h-[70vh] flex items-center ">
+                <div class="w-full px-8 lg:px-12">
+                        <div class="flex flex-col justify-center items-center lg:items-start sm:mt-[15%] md:mt-[15%] lg:mt-[-15%] ">
+                            <h1 class="text-xl sm:text-2xl md:text-4xl lg:text-4xl font-semibold text-[var(--main-color)] text-shadow pt-[20%] lg:pt-0 ">
+                                A Clear and Refreshing Experience
+                            </h1>
+                            <p class=" text-xl lg:text-3xl indent-8 pt-5 p-5 opacity-85 text-[var(--main-black)] [font-family:var(--main-font-family1)]">
+                                Caring for a plant means giving it the right environment to grow with patience,
+                                attention, and simplicity. That's the same feeling we want to create here.
+                                Our aim is to offer a space that feels natural, calming, and easy to use
+                                just like the joy of nurturing something green and alive.
+                            </p>
+                            <div class="w-full flex flex-row items-start gap-3 lg:gap-5 ps-10 lg:mt-2 ">
+                                <div>
+                                <i class="bi bi-arrow-90deg-down text-5xl md:text-6xl text-[var(--main-color)] font-semiold -rotate-90 flex justify-end "></i>
+                                </div>
+                                <div class="mt-5 w-full sm:w-[100%] lg:w-[70%] ">
+                                    <button type="button" class="w-[40%] h-16 text-xl md:text-xl text-white font-semibold bg-[var(--main-color)] rounded me-10 hover:bg-[var(--main-hover-btn)]">
+                                        Discover
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </nav>
+        </section>
+    </main>
+
+
+<main class="w-full  mt-10 ">
+    
+    <section class="w-full bg-[url('img/background1.png')] bg-cover bg-center relative ">
+        <div class="absolute top-0 left-0 w-[10%] lg:w-[7%] mt-[-12%] lg:ml-0 ">
+            <img src="img/smallLeaf.png" alt="">
+        </div>
+        
+        <nav class="flex flex-col justify-center items-center pt-5  ">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--main-color)] text-center text-shadow underline underline-offset-8">
+                Taking Care Of Your Plants In The Right Way
+            </h1>              
+        </nav>
+        <div class="text-shadowBig flex justify-center items-center text-xl sm:text-md md:text-md 
+        text-[var(--main-black)] text-carlito opacity-50 pt-[6%] ">Nurture Your Plants the Right Way</div>
+        <!-- 1 -->
+
+        <div class="w-full px-4 md:px-8 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5  ">
+                        <li class="flex justify-center" ><img src="img/digging.png" alt="" class="w-[55%] md:w-[70%] lg:w-[70%] object-contain"></li>
+                        <li class="w-full flex justify-center text-xl  md:text-xl lg:text-2xl font-semibold text-[var(--main-color)] text-plusjakarta " >1. Preparing The Soil And Tools</li>
+                        <li><img src="img/BorderBottom.png" alt="" class="w-[75%] md:w-[90%] lg:w-[90%] m-auto"></li>
+                        <li class="flex justify-center text-carlito indent-5 text-shadow opacity-55 text-center " >Collect all necessary gardening tools including small pots, trowels, and watering equipment. Having everything ready makes the planting process smoother.</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 2 -->
+            <nav class="pt-[10%] md:pt-[20%] md:pt-[20%] ">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/seed.png" alt="" class="w-[55%] md:w-[70%] lg:w-[70%] object-contain"></li>
+                        <li class="flex justify-center text-xl sm:text-3xl md:text-xl lg:text-2xl font-semibold text-[var(--main-color)] text-plusjakarta " >2. Sow The Seeds</li>
+                        <li><img src="img/BorderBottom.png" alt="" class="w-[75%] md:w-[90%] lg:w-[90%] m-auto"></li>
+                        <li class="flex justify-center text-carlito indent-5 text-shadow opacity-55 text-center " >Plant your seeds at the proper depth in well-prepared soil. Follow spacing guidelines and ensure seeds are covered with the right amount of soil.</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 3 -->
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/sprout.png" alt="" class="w-[55%] md:w-[70%] lg:w-[70%] object-contain"></li>
+                        <li class="flex justify-center text-xl sm:text-xl md:text-xl lg:text-2xl font-semibold text-[var(--main-color)] text-plusjakarta " >3. Watch For Sprouting</li>
+                        <li><img src="img/BorderBottom.png" alt="" class="w-[75%] md:w-[90%] lg:w-[90%] m-auto"></li>
+                        <li class="flex justify-center text-carlito indent-5 text-shadow opacity-55 text-center" >Monitor your planted seeds daily for the first signs of germination. Small green shoots emerging from the soil indicate successful sprouting.</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 4 -->
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/watering.png" alt="" class="w-[55%] md:w-[70%] lg:w-[70%] object-contain"></li>
+                        <li class="flex justify-center text-xl sm:text-xl md:text-xl lg:text-2xl font-semibold text-[var(--main-color)] text-plusjakarta " >4. Provide Adequate Watering</li>
+                        <li><img src="img/BorderBottom.png" alt="" class="w-[75%] md:w-[90%] lg:w-[90%] m-auto"></li>
+                        <li class="flex justify-center text-carlito indent-5 text-shadow opacity-55 text-center" >Use a watering can or gentle spray to keep soil consistently moist but not waterlogged. Young plants need regular hydration for healthy growth.</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 5 -->
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/transplat_seeding.png" alt="" class="w-[55%] md:w-[70%] lg:w-[70%] object-contain"></li>
+                        <li class="flex justify-center text-xl sm:text-xl md:text-xl lg:text-2xl font-semibold text-[var(--main-color)] text-plusjakarta " >5. Transplant Seedings</li>
+                        <li><img src="img/BorderBottom.png" alt="" class="w-[75%] md:w-[90%] lg:w-[90%] m-auto"></li>
+                        <li class="flex justify-center text-carlito indent-5 text-shadow opacity-55 text-center " >When seedlings have developed their first true leaves, carefully transplant them into individual pots with fresh potting soil for continued growth.</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 6 -->
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/YoungPlant.png" alt="" class="w-[55%] md:w-[70%] lg:w-[70%] object-contain"></li>
+                        <li class="flex justify-center text-xl sm:text-xl md:text-xl lg:text-2xl font-semibold text-[var(--main-color)] text-plusjakarta " >6. Nurture Young Plants</li>
+                        <li><img src="img/BorderBottom.png" alt="" class="w-[75%] md:w-[90%] lg:w-[90%] m-auto"></li>
+                        <li class="flex justify-center text-carlito indent-5 text-shadow opacity-55 text-center " >Continue caring for your young plants with proper watering, adequate light, and protection from harsh conditions until they're ready for their final location.</li>
+                    </ul>
+                </div>
+            </nav> 
+        </div>
+        </div>
+            <!-- Overlay -->
+    <!-- <div class="absolute inset-0 bg-black opacity-50"></div> -->
+     <div class="pt-10"></div>
+    </section>
+
+
+<main class="w-full mt-10 ">
+    <section class="w-full bg-[url('img/background1.png')] bg-cover bg-center relative ">
+        <div class="absolute top-0 left-0 w-[10%] lg:w-[7%] mt-[-12%] lg:ml-0 ">
+            <img src="img/twoleaf.png" alt="">
+        </div>
+
+        <div class="absolute top-0 right-0 w-[10%] lg:w-[7%] mt-[-10%] lg:ml-0 rotate-180 ">
+            <img src="img/smallLeaf.png" alt="">
+        </div>
+        
+        <nav class="flex flex-col justify-center items-center pt-5  ">
+            <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--main-color)] text-center text-shadow underline underline-offset-8">
+                Avaliable Any Size
+            </h1>              
+        </nav>
+        <div class="text-shadowBig flex justify-center items-center text-xl sm:text-md md:text-md 
+            text-[var(--main-black)] text-carlito opacity-50 pt-[6%] ">Explore Our Plant Various Size
+        </div>
+        <!-- 1 -->
+        <nav class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5  ">
+                        <li class="flex justify-center" ><img src="img/medium.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain hover:scale-105 transition-transform duration-300"></li>
+                        <li class="w-full flex justify-center text-xl  md:text-3xl lg:text-4xl font-semibold text-[var(--main-color)] text-plusjakarta " >1. Medium</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 2 -->
+            <nav class="pt-[10%] md:pt-[20%] ">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/large.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain hover:scale-105 transition-transform duration-300"></li>
+                        <li class="flex justify-center text-xl  md:text-3xl lg:text-4xl font-semibold text-[var(--main-color)] text-plusjakarta " >2. Large</li>
+                    </ul>
+                </div>
+            </nav>   
+        </nav>
+        <!-- middle -->
+        <nav class="pt-[10%] md:pt-[10%] ">
+            <div class="flex justify-center">
+                <ul class="w-full list-none space-y-5 ">
+                    <li class="flex justify-center" ><img src="img/small.png" alt="" class="w-[55%] md:w-[55%] lg:w-[30%] object-contain hover:scale-105 transition-transform duration-300"></li>
+                    <li class="flex justify-center text-xl md:text-3xl lg:text-4xl font-semibold text-[var(--main-color)] text-plusjakarta " >3. Small</li>
+                </ul>
+            </div>
+        </nav>
+        <!-- 3 -->
+        <nav class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <nav class="pt-[10%] md:pt-[20%]">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5  ">
+                        <li class="flex justify-center" ><img src="img/huge.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain hover:scale-105 transition-transform duration-300"></li>
+                        <li class="w-full flex justify-center text-xl  md:text-3xl lg:text-4xl font-semibold text-[var(--main-color)] text-plusjakarta " >4. Huge</li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- 4 -->
+            <nav class="pt-[10%] md:pt-[20%] ">
+                <div class="flex justify-center">
+                    <ul class="w-full list-none space-y-5 ">
+                        <li class="flex justify-center" ><img src="img/collection.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain hover:scale-105 transition-transform duration-300"></li>
+                        <li class="flex justify-center text-xl md:text-3xl lg:text-4xl font-semibold text-[var(--main-color)] text-plusjakarta " >5. Collection</li>
+                    </ul>
+                </div>
+            </nav>   
+        </nav>
+        <div class="pt-12"></div>
+    </section>
+</main>
+
+<main class="w-full mt-10 bg-[var(--main-color2)] ">
+    <section class="h-[130vh] md:h-[0vh] lg:h-[90vh] relative">
+        <div class="absolute top-0 left-0 w-[10%] lg:w-[7%] mt-[-12%] lg:ml-0">
+            <img src="img/banchFlower.png" alt="">
+        </div>
+
+        <nav class="flex flex-col justify-center items-center pt-5  ">
+            <h1 class="text-2xl md:text-3xl lg:text-3xl font-bold text-[var(--main-color)] text-center text-shadow underline underline-offset-8">
+                More ways that YouShould need Plants
+            </h1>              
+        </nav>
+        <nav class="flex flex-col md:flex-row justify-center items-start gap-0 pt-[10%] lg:pt-[5%] ">
+            <!-- Pet -->
+            <div class="flex flex-col items-center mb-8 space-y-5 lg:mb-0">
+                <img src="img/cat.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain shadow-xl ">
+                <p class="text-xl md:text-2xl lg:text-3xl font-semibold text-[var(--main-black)] text-plusjakarta text-shadowBig opacity-50">Pet</p>
+            </div>
+
+            <!-- Easy Maintenance -->
+            <div class="flex flex-col items-center mb-8 space-y-5 lg:mb-0">
+                <img src="img/ppl.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain shadow-xl ">
+                <p class="text-xl md:text-2xl lg:text-3xl font-semibold text-[var(--main-black)] text-plusjakarta text-shadowBig opacity-50">Easy Maintenance</p>
+            </div>
+
+            <!-- Gift -->
+            <div class="flex flex-col items-center mb-8 space-y-5 lg:mb-0">
+                <img src="img/gift.png" alt="" class="w-[55%] md:w-[80%] lg:w-[50%] object-contain shadow-xl">
+                <p class="text-xl md:text-2xl lg:text-3xl font-semibold text-[var(--main-black)] text-plusjakarta text-shadowBig opacity-50">Gift</p>
+            </div>
+        </nav>
+    </section>
+    <div class="pt-[100%] lg:pt-10"></div>
+</main>
+
+<main class="w-full h-[60vh] md:h-[50vh] mt-[7%] lg:mt-10 ">
+    <section class="w-full h-[90vh]  relative">
+        <div class="absolute -top-7 left-0 w-[10%] lg:w-[7%] mt-[-12%] lg:mt-[-5%]  lg:ml-0">
+            <img src="img/bigleaf.png" alt="">
+        </div>
+
+        <nav class="flex flex-col justify-center items-center pt-5 mb-10 ">
+            <h1 class="text-2xl md:text-3xl lg:text-3xl font-bold text-[var(--main-color)] text-center text-shadow underline underline-offset-8">
+                This is What BloomBare Gurantees 
+            </h1>              
+        </nav>
+
+        <nav class="navGurantee w-[70%] md:w-full grid place-self-center grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-3 pt-10">
+
+            <div  class="Gurantee1 w-[85%]  md:w-[90%]  lg:w-[80%] md:h-[100%] bg-[var(--main-color4)] border-2  border-[var(--main-color)] flex justify-center gap-5 p-3 ps-[-10px] ms-3 rounded-[10px] ">
+                <i class="bi bi-truck text-[var(--main-color)] text-5xl md:text-3xl"></i>
+                <ul class="space-y-1  text-start">
+                    <li class="text-md text-[var(--main-black)] font-semibold">Free Shipping</li>
+                    <li class="text-xs">Enjoy smooth and free delivery service.</li>
+                </ul>
+            </div>
+
+            
+            <div class="Gurantee2 w-[85%]  md:w-[90%]  lg:w-[80%] md:h-[100%] bg-[var(--main-color4)] border-2  border-[var(--main-color)] flex justify-center gap-5 p-3 ps-[-10px] ms-4 rounded-[10px]">
+                <i class="bi bi-truck text-[var(--main-color)] text-5xl md:text-3xl "></i>
+                <ul class="space-y-1  text-start">
+                    <li class="text-md text-[var(--main-black)] font-semibold">Fast And Secure</li>
+                    <li class="text-xs">Trust our  fast and secure service, every time.</li>
+                </ul>
+            </div>
+            
+            <div class="Gurantee3 w-[85%]  md:w-[90%]  lg:w-[80%] md:h-[100%] bg-[var(--main-color4)] border-2  border-[var(--main-color)] flex justify-center gap-5 p-3 ps-[-10px] ms-3 rounded-[10px] ">
+                <i class="bi bi-truck text-[var(--main-color)] text-5xl md:text-3xl"></i>
+                <ul class="space-y-1  text-start">
+                    <li class="text-md text-[var(--main-black)] font-semibold">Money Return</li>
+                    <li class="text-xs">No worries we offer hassle-free refunds.</li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+</main>
+
+<main class="relative mt-[40%] md:mt-[10%] p-0">
+    <div class="absolute -top-7 right-0 w-[35%] lg:w-[22%] mt-[-20%] lg:mt-[-8%] lg:ml-0 z-10">
+        <img src="img/coconutleaf.png" alt="">
+    </div>
+    <section class="w-[85%] h-[70vh] lg:h-[70vh] relative bg-[var(--main-color)] m-auto">
+        <nav class=" w-full ">
+
+            <div class="text-white text-3xl lg:text-4xl font-bold text-center pt-[10%]">
+                <h1 class="mb-10">Subscribe Us Now </h1>
+                <p class="p-5 text-xl lg:text-2xl"><i class="bi bi-quote "></i>Subscribe to our newsletter and never miss an update. Get exclusive deals, new product launches, and special offers straight to your inbox.<i class="bi bi-quote rotate-180 inline-block"></i></p>
+            </div>
+
+            <div class="w-[80%] pt-16 m-auto relative">
+                <input type="email" placeholder="Email"  class="w-full h-[8vh] ps-5 lg:ps-16 font-semibold text-xl  outline-none">
+                <button type="submite" class="subscript w-[30%] lg:w-[15%] h-[6vh] bg-[var(--main-color)] text-white text-md lg:text-xl font-semibold text-center absolute right-[8%] top-[56%] hover:shadow-2xl hover:scale-15 hover:bg-[var(--main-hover-btn)]">
+                    Subscribe
+                </button>
+            </div>
+        </nav>
+    </section>
+</main>
+
+<footer id="bloombare-footer" class="bg-[var(--main-color)] text-white mt-10"></footer>
+
+
+</body>
+ <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontSize: {
+                        '10xl': '10rem',
+                        '11xl': '11rem',
+                        '12xl': '12rem',
+                    },
+                      rotate: {
+                        '12': '12deg',
+                        '15': '15deg',
+                        '17': '17deg',
+                        '30': '30deg',
+                        '60': '60deg',
+                    },
+
+                    rounded: {
+                        '5xl': '3rem',
+                    }
+                }
+            }
+        }
+    </script>
+</html>

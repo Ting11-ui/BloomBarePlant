@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <header id="header" class="w-full h-[10vh] bg-[var(--main-color3)] shadow-md flex items-center sticky top-0 z-50">
+        <!-- Mobile Menu Button -->
+        <div class="menu block lg:hidden ps-4">
+            <button id="menu" class="text-3xl text-[var(--main-color)] font-bold">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Offcanvas Menu -->
+        <div id="offcanvas" class="fixed lg:hidden top-0 left-0 w-[70%] h-full bg-[var(--main-color2)] transform -translate-x-full transition-transform duration-300 z-[999] overflow-y-auto flex flex-col">
+            <!-- Header inside offcanvas -->
+            <div class="relative w-full flex justify-between items-center px-4 pt-5">
+                <h1 class="text-[var(--main-color)] font-bold text-3xl">BloomBare</h1>
+                <img src="img/Leaves.png" alt="logo" class="w-7 absolute top-4 left-[55%]" />
+                <button id="cancel" class="text-3xl text-[var(--main-color)] absolute top-4 right-4">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="flex flex-col items-start ps-10 gap-6 mt-10 text-[var(--main-color)] text-2xl font-semibold">
+                <li><a href="Home.html" class="nav-link">HOME</a></li>
+                <li><a href="Plants.html" class="nav-link">PLANTS</a></li>
+                <li><a href="About.html" class="nav-link">ABOUT</a></li>
+                <li><a href="Contact.html" class="nav-link">CONTACT US</a>
+            </ul>
+
+            <!-- Offcanvas image -->
+            <div class="m-auto my-5 max-w-[40%]">
+                <img src="img/offcanvas.png" alt="Offcanvas Visual" class="w-full h-auto object-contain" />
+            </div>
+
+            <!-- Privacy, Social, and Copyright -->
+            <div class="text-[var(--main-color)] flex flex-col sm:flex-row sm:items-center sm:justify-between mt-auto px-6 py-4 gap-6 text-sm sm:text-base">
+                <!-- Privacy / Terms -->
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                    <a href="#" class="hover:text-[var(--main-hover)]">Privacy Policy</a>
+                    <a href="#" class="hover:text-[var(--main-hover)]">Cookie Policy</a>
+                    <a href="#" class="hover:text-[var(--main-hover)]">Terms of Use</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex gap-6 text-xl">
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-twitter"></i></a>
+                    <div>
+                        <p class="text-sm pt-1">Tel: +92-882-4235</p>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-start sm:text-right text-xs sm:text-sm">
+                    <p>&copy; 2025 Bloombare. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="relative w-[20%] sm:w-auto ps-5 flex justify-start">
+            <h1 class="text-[var(--main-color)] font-bold text-2xl sm:text-4xl px-9">BloomBare</h1>
+            <img id="imgLeaf" src="img/Leaves.png" alt="logo" class="w-7 sm:w-10 absolute -top-2 sm:-top-3 left-44 sm:left-[84%]" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="MenuDesk hidden lg:flex w-full items-center ps-[15%]">
+            <ul class="flex gap-10 text-3xl text-[var(--main-color)] font-[var(--main-font-family)] font-bold whitespace-nowrap">
+                <li><a href="Home.html" class="nav-link">HOME</a></li>
+                <li><a href="Plants.html" class="nav-link">PLANTS</a></li>
+                <li><a href="About.html" class="nav-link">ABOUT</a></li>
+                <li><a href="Contact.html" class="nav-link">CONTACT US</a>
+            </ul>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex w-full justify-end gap-4 text-2xl text-[var(--main-color)] font-bold pr-4 relative">
+            <i id="search-icon" class="bi bi-search cursor-pointer hover:text-[var(--main-hover)]"></i>
+            <i class="bi bi-heart cursor-pointer hover:text-[var(--main-hover)]"></i>
+            <div class="relative">
+                <a href="Cart.html" class="block">
+                    <i class="bi bi-bag cursor-pointer hover:text-[var(--main-hover)]"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center hidden">0</span>
+                </a>
+            </div>
+            <i class="bi bi-person sm:text-3xl hover:text-[var(--main-hover)]"></i>
+            
+            <!-- Search Modal Dropdown -->
+            <div id="search-modal" class="search-modal absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl p-3 w-80 z-50">
+                <input type="text" id="search-input" class="w-full p-2 text-sm border border-gray-300 rounded-md outline-none focus:border-[var(--main-color)] transition-colors" placeholder="Search">
+                <div id="search-results" class="mt-2 max-h-60 overflow-y-auto"></div>
+            </div>
+        </div>
+    </header>
+
+        <main class="w-full h-full ">
+        <section class="w-full h-[50vh] md:mt-[-25%] lg:mt-[0%] lg:h-[52vh] ">
+            <nav class="flex flex-col justify-center items-center lg:grid lg:grid-cols-2 h-full ">
+            
+            <!-- LEFT -->
+            <div class="Come bg-[var(--main-color2)] h-full md:h-[30vh] lg:h-[90vh] pt-12 lg:pt-8 flex flex-col mt-[60%] md:mt-[50%] lg:mt-[0%] ">
+                <h1 class="text-xl md:text-3xl lg:text-5xl font-bold text-center opacity-50 text-shadowBig mt-10 lg:mt-14 ">
+                Come With US
+                </h1>
+                <p class="p-4 md:p-10 lg:p-10 text-xs md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                Welcome to Bloombare Inspires, a digital magazine dedicated to plant parents and culture vultures alike.
+                Here, we explore the creative ideas that ignite our passion for plants. 
+                </p>
+                <p class="p-4 md:mt-[-7%] md:p-10 lg:p-10 text-xs  md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                From (horti) cultural events to inspire your green fingers, to innovative interiors to help you make our leafy friends feel right at home, you’ll find a curated edit of ideas and inspiration here.
+                Plus, look out for sneak peeks behind the Patch scenes, with exclusive insights into our world.
+                </p>
+                <div class="pt-[100%] lg:pt-10"></div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="pineapple w-full h-full md:h-[30vh] lg:h-[90vh] bg-[var(--main-color2)] md:items-center md:justify-center ">
+                <img src="img/pineapple.png" alt="" class="w-full object-fit bg-[var(--main-color2)]">
+            </div>
+            </nav>
+        </section>
+    </main>
+
+    <main class="result w-full h-[90vh] mt-[90%] md:mt-[95%] lg:mt-[35%] m-0 p-0">
+        <section class="data h-[20vh] md:h-[25vh] lg:h-[30vh] bg-[var(--main-color5)] lg:mt-[-1%]">
+        <nav class="flex flex-col md:flex-row justify-between bg-[var(--main-bg)] h-[150px] md:h-[200px] lg:h-[250px]">
+
+    <!-- Left image -->
+    <div class="hidden md:block flex-1 flex justify-start md:justify-start items-start md:items-center mb-6 md:mb-0">
+        <img src="img/structureflowerleft.png"
+             alt=""
+             class="w-[15%] md:w-[100%] lg:w-[25%] h-auto mt-0 md:mt-[5%] lg:mt-[5%] object-contain" />
+    </div>
+
+    <!-- Center section -->
+    <div class="flex justify-between items-center mt-10 lg:-mt-6 gap-x-6 md:gap-x-12 lg:gap-x-24">
+
+        <!-- Block 1 -->
+        <div class="flex flex-col justify-center items-center ps-3 md:ps-0">
+            <h1 class="text-md md:text-3xl lg:text-4xl font-bold text-[var(--main-color)]">3000+</h1>
+            <p class="text-xs md:text-base text-[var(--main-color)] text-center">Monthly New Customers</p>
+        </div>
+
+        <!-- Vertical line -->
+        <img src="img/vhline.png" alt="line" class="h-20 md:h-32 lg:h-40 object-contain">
+
+        <!-- Block 2 -->
+        <div class="flex flex-col justify-center items-center ">
+            <h1 class="text-md md:text-3xl lg:text-4xl font-bold text-[var(--main-color)]">2575+</h1>
+            <p class="text-xs md:text-base text-[var(--main-color)] text-center">Dealers</p>
+        </div>
+
+        <!-- Vertical line -->
+        <img src="img/vhline.png" alt="line" class="h-20 md:h-32 lg:h-40 object-contain">
+
+        <!-- Block 3 -->
+        <div class="flex flex-col justify-center items-center pe-3 md:pe-0">
+            <h1 class="text-md md:text-3xl lg:text-4xl font-bold text-[var(--main-color)]">150+</h1>
+            <p class="text-xs md:text-base text-[var(--main-color)] text-center">Plant Types</p>
+        </div>
+
+    </div>
+
+    <!-- Right image -->
+    <div class="hidden md:block flex-1 flex justify-end md:justify-end items-start md:items-center mt-6 md:mt-0 overflow-x-hidden">
+        <img src="img/structureflowerright.png"
+             alt=""
+             class="w-[15%] md:w-[100%] lg:w-[35%] h-auto mt-0 md:mt-[50%] lg:mt-[5%] lg:ms-[65%] object-contain" />
+    </div>
+
+</nav>
+
+
+        </section>
+    </main>
+
+    <main class="w-full h-full mt-[22%] md:mt-[2%] lg:mt-[35%]  ">
+        <section class=" about w-full h-[50vh] mt-[-125%] md:mt-[-60%] lg:mt-[-50%]  lg:h-auto bg-[var(--main-color2)] ">
+            <nav class="flex flex-col justify-center items-center lg:grid lg:grid-cols-2 ">
+            
+                <!-- LEFT -->
+                <div class="Come w-full bg-[var(--main-color2)] h-[60vh] md:h-[30vh] lg:h-[110vh] pt-12 lg:pt-8 flex flex-col mt-[50%] md:mt-[50%] lg:mt-[0%] ">
+                    <h1 class="text-xl md:text-3xl lg:text-5xl font-bold text-center opacity-50 text-shadowBig mt-[-50%] lg:mt-[2%] ">
+                    About Us
+                    </h1>
+                    <p class="p-4 md:p-10 lg:p-10 text-xs md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                    We started House Plant Shop as a group of childhood friends who all shared a love for nature and the outdoors. After college, we became roommates and quickly realized that filling our home with plants was something we all had in common. But when we tried shopping for Bloombare online, we found it surprisingly difficult to find a store that was easy to navigate and not just geared toward wholesale. So, in 2017, we decided to launch HousePlantShop.com—a one-stop shop for all things houseplants.
+                    </p>
+                    <p class="p-4 md:mt-[-7%] md:p-10 lg:p-10 text-xs  md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                    What started in our shared home, with plants packed from our backyard and garage, has now grown into something much bigger. Today, we operate out of a large greenhouse in Southern California and have now expanded to a second greenhouse in Florida to bring even more happy, healthy plants to plant lovers across the country.
+                    </p>
+                    <p class="p-4 md:mt-[-7%] md:p-10 lg:p-10 text-xs  md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                    Even as we’ve grown, we still treat every order with the same care and attention as we did when we first started. Our goal is simple: to make finding and caring for houseplants easy, fun, and accessible to everyone.               
+                    </p>
+                    <p class="p-4 md:mt-[-7%] md:p-10 lg:p-10 text-xs  md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                    From our house to yours,                 
+                    </p>
+                    <p class="p-4 mt-[-7%] md:mt-[-10%] lg:mt-[-12%] md:p-10 lg:p-10 text-xs  md:text-sm lg:text-xl opacity-50 text-shadowBig ">
+                    The Bloombare Shop Team,                 
+                    </p>
+                    <!-- <div class="pt-[100%] lg:pt-10 "></div> -->
+                </div>
+
+                <!-- RIGHT -->
+                <div class="pineapple w-full h-full md:h-[30vh] lg:h-[90vh] bg-[var(--main-color2)] md:items-center md:justify-center ">
+                    <img src="img/groupPlant.png" alt="" class="w-full object-fit ">
+                </div>
+                <div class="pt-[100%]  lg:pt-10"></div>
+            </nav>
+            
+        </section>
+    </main>
+
+    <main class=" mt-[180%] md:mt-[130%] lg:mt-[5%]">
+        <section class="w-full bg-[var(--main-color5)] ">
+            <nav class="flex flex-col justify-center items-center pt-5 mb-10 ">
+                <h1 class="text-2xl md:text-3xl lg:text-3xl font-bold text-[var(--main-color)] text-center text-shadow underline underline-offset-8">
+                    This is What BloomBare Gurantees 
+                </h1>              
+            </nav>
+            <nav class="navGurantee w-[70%] md:w-[100%] lg:w-[80%] grid place-self-center grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10 md:gap-3 pt-10">
+
+            <div  class="Gurantee1 w-[85%]  md:w-[90%]  lg:w-[80%] md:h-[100%] bg-[var(--main-color4)] border-2  border-[var(--main-color)] flex justify-center gap-5 p-3 ps-[-10px] ms-3 rounded-[10px] ">
+                <i class="bi bi-truck text-[var(--main-color)] text-4xl lg:text-5xl md:text-3xl"></i>
+                <ul class="space-y-1  text-start">
+                    <li class="text-md text-[var(--main-black)] font-semibold">Free Shipping</li>
+                    <li class="text-xs">Enjoy smooth and free delivery service.</li>
+                </ul>
+            </div>
+
+            
+            <div class="Gurantee2 w-[85%]  md:w-[90%]  lg:w-[80%] md:h-[100%] bg-[var(--main-color4)] border-2  border-[var(--main-color)] flex justify-center gap-5 p-3 ps-[-10px] ms-4 rounded-[10px]">
+                <i class="bi bi-truck text-[var(--main-color)] text-4xl lg:text-5xl md:text-3xl "></i>
+                <ul class="space-y-1  text-start">
+                    <li class="text-md text-[var(--main-black)] font-semibold">Fast And Secure</li>
+                    <li class="text-xs">Trust our  fast and secure service, every time.</li>
+                </ul>
+            </div>
+            
+            <div class="Gurantee3 w-[85%]  md:w-[90%]  lg:w-[80%] md:h-[100%] bg-[var(--main-color4)] border-2  border-[var(--main-color)] flex justify-center gap-5 p-3 ps-[-10px] ms-3 rounded-[10px] ">
+                <i class="bi bi-truck text-[var(--main-color)] text-4xl lg:text-5xl md:text-3xl"></i>
+                <ul class="space-y-1  text-start">
+                    <li class="text-md text-[var(--main-black)] font-semibold">Money Return</li>
+                    <li class="text-xs">No worries we offer hassle-free refunds.</li>
+                </ul>
+            </div>
+            <div class="pt-[10%] md:pt-[10%]  lg:pt-10"></div>
+        </nav>
+        </section>
+    </main>
+
+    <main class="w-full h-full ">
+        <section class=" mt-10 relative">
+            <div class="h-full">
+                <nav class="ps-10 ">
+                    <div class="font-bold text-xl lg:text-2xl">Review</div>
+                    <div class="number15 absolute w-10 text-center bg-[var(--main-color)] top-[1%] left-[27%] md:left-[15%] lg:top-[1%] lg:left-[8%] rounded text-white">15</div>
+
+                    <div class=" pt-8 lg:pt-10 lg:mb-[4%]">
+                        <div>
+                            <img src="img/person.png" alt=""  class="w-[15%] md:w-[10%] lg:w-[3%] ">
+                            <ul class="absolute w-[60%] top-[14%] left-[25%] md:left-[18%] md:top-[20%] lg:w-[80%] lg:top-[20%] lg:left-[7%]">
+                                <li class="font-bold">Alex Stanton</li>
+                                <li class="text-[var(--main-color6)]">CEO at Bukalapak</li>
+                                <li class="text-[var(--main-black)] opacity-50 lg:pt-2">We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.</li>
+                            </ul>
+                            
+
+                            <div class=" pe-5 mt-[-17%] md:pt-[10%] lg:pe-[2%] lg:mt-[-12%]">
+                                <ul class="flex flex-col items-end">
+                                    <li class="lg:text-xs text-[var(--main-color6)]">18 August 2025</li>
+                                    <li class="flex ">
+                                    <span class="text-yellow-500">★★★★</span>
+                                    <span class="text-yellow-500">☆</span>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="pt-[60%] md:pt-[15%] lg:pt-10">
+                        <div>
+                            <img src="img/persongirl.png" alt="" class="w-[15%] md:w-[10%] lg:w-[3%] rounded-full">
+                            <ul class="absolute w-[60%] left-[25%] top-[89%] md:left-[18%] md:top-[88%] lg:w-[80%] lg:top-[80%] lg:left-[7%]">
+                                <li class="font-bold">Alex Stanton</li>
+                                <li class="text-[var(--main-color6)]">CEO at Bukalapak</li>
+                                <li class="text-[var(--main-black)] opacity-50 lg:pt-2">We are very happy with the service from the MORENT App. Morent has a low price and also a large variety of cars with good and comfortable facilities. In addition, the service provided by the officers is also very friendly and very polite.</li>
+                            </ul>
+                            
+
+                            <div class="pe-5 mt-[-20%] md:pt-[10%] lg:pe-[2%] lg:mt-[-12%]">
+                                <ul class="flex flex-col items-end">
+                                    <li class="lg:text-xs text-[var(--main-color6)]">19 August 2025</li>
+                                    <li class="flex">
+                                    <span class="text-yellow-500">★★★★</span>
+                                    <span class="text-yellow-500">☆</span>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="absolute mt-[47%] md:mt-[17%] lg:top-[100%] lg:mt-[5%] lg:gap-1">
+                        <button type="button" class="text-[var(--main-color)]">Show More<i class="bi bi-chevron-down "></i></button> 
+                    </div>
+                </nav>
+                
+
+            </div>
+        </section>
+         <div class="pt-[10%] md:pt-[10%]  lg:pt-10"></div>
+    </main>
+
+<footer id="bloombare-footer" class="bg-[var(--main-color)] text-white mt-[50%] md:mt-[20%]  lg:mt-10"></footer>
+
+<script src="../JS/index.js"></script>
+</body>
+ <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontSize: {
+                        '10xl': '10rem',
+                        '11xl': '11rem',
+                        '12xl': '12rem',
+                    },
+                      rotate: {
+                        '12': '12deg',
+                        '15': '15deg',
+                        '17': '17deg',
+                        '30': '30deg',
+                        '60': '60deg',
+                    },
+
+                    rounded: {
+                        '5xl': '3rem',
+                    },
+                     borderRadius: {
+                        'custom-lg': '15px',   
+                        'extra-lg': '30px',    
+                    },
+                }
+            }
+        }
+    </script>
+</html>

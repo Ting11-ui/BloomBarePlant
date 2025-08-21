@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <header id="header" class="w-full h-[10vh] bg-[var(--main-color3)] shadow-md flex items-center sticky top-0 z-50">
+        <!-- Mobile Menu Button -->
+        <div class="menu block lg:hidden ps-4">
+            <button id="menu" class="text-3xl text-[var(--main-color)] font-bold">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+
+        <!-- Offcanvas Menu -->
+        <div id="offcanvas" class="fixed lg:hidden top-0 left-0 w-[70%] h-full bg-[var(--main-color2)] transform -translate-x-full transition-transform duration-300 z-[999] overflow-y-auto flex flex-col">
+            <!-- Header inside offcanvas -->
+            <div class="relative w-full flex justify-between items-center px-4 pt-5">
+                <h1 class="text-[var(--main-color)] font-bold text-3xl">BloomBare</h1>
+                <img src="img/Leaves.png" alt="logo" class="w-7 absolute top-4 left-[55%]" />
+                <button id="cancel" class="text-3xl text-[var(--main-color)] absolute top-4 right-4">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <ul class="flex flex-col items-start ps-10 gap-6 mt-10 text-[var(--main-color)] text-2xl font-semibold">
+                <li><a href="Home.html" class="nav-link">HOME</a></li>
+                <li><a href="Plants.html" class="nav-link">PLANTS</a></li>
+                <li><a href="About.html" class="nav-link">ABOUT</a></li>
+                <li><a href="Contact.html" class="nav-link">CONTACT US</a>
+            </ul>
+
+            <!-- Offcanvas image -->
+            <div class="m-auto my-5 max-w-[40%]">
+                <img src="img/offcanvas.png" alt="Offcanvas Visual" class="w-full h-auto object-contain" />
+            </div>
+
+            <!-- Privacy, Social, and Copyright -->
+            <div class="text-[var(--main-color)] flex flex-col sm:flex-row sm:items-center sm:justify-between mt-auto px-6 py-4 gap-6 text-sm sm:text-base">
+                <!-- Privacy / Terms -->
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-6">
+                    <a href="#" class="hover:text-[var(--main-hover)]">Privacy Policy</a>
+                    <a href="#" class="hover:text-[var(--main-hover)]">Cookie Policy</a>
+                    <a href="#" class="hover:text-[var(--main-hover)]">Terms of Use</a>
+                </div>
+
+                <!-- Social Icons -->
+                <div class="flex gap-6 text-xl">
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="hover:text-[var(--main-hover)]"><i class="bi bi-twitter"></i></a>
+                    <div>
+                        <p class="text-sm pt-1">Tel: +92-882-4235</p>
+                    </div>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-start sm:text-right text-xs sm:text-sm">
+                    <p>&copy; 2025 Bloombare. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="relative w-[20%] sm:w-auto ps-5 flex justify-start">
+            <h1 class="text-[var(--main-color)] font-bold text-2xl sm:text-4xl px-9">BloomBare</h1>
+            <img id="imgLeaf" src="img/Leaves.png" alt="logo" class="w-7 sm:w-10 absolute -top-2 sm:-top-3 left-44 sm:left-[84%]" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="MenuDesk hidden lg:flex w-full items-center ps-[15%]">
+            <ul class="flex gap-10 text-3xl text-[var(--main-color)] font-[var(--main-font-family)] font-bold whitespace-nowrap">
+                <li><a href="Home.html" class="nav-link">HOME</a></li>
+                <li><a href="Plants.html" class="nav-link">PLANTS</a></li>
+                <li><a href="About.html" class="nav-link">ABOUT</a></li>
+                <li><a href="Contact.html" class="nav-link">CONTACT US</a>
+            </ul>
+        </div>
+
+        <!-- Icons -->
+        <div class="flex w-full justify-end gap-4 text-2xl text-[var(--main-color)] font-bold pr-4 relative">
+            <i id="search-icon" class="bi bi-search cursor-pointer hover:text-[var(--main-hover)]"></i>
+            <i class="bi bi-heart cursor-pointer hover:text-[var(--main-hover)]"></i>
+            <div class="relative">
+                <a href="Cart.html" class="block">
+                    <i class="bi bi-bag cursor-pointer hover:text-[var(--main-hover)]"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center hidden">0</span>
+                </a>
+            </div>
+            <i class="bi bi-person sm:text-3xl hover:text-[var(--main-hover)]"></i>
+            
+            <!-- Search Modal Dropdown -->
+            <div id="search-modal" class="search-modal absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl p-3 w-80 z-50">
+                <input type="text" id="search-input" class="w-full p-2 text-sm border border-gray-300 rounded-md outline-none focus:border-[var(--main-color)] transition-colors" placeholder="Search">
+                <div id="search-results" class="mt-2 max-h-60 overflow-y-auto"></div>
+            </div>
+        </div>
+    </header>
+
+<main class="w-full h-auto">
+  <section class="w-full min-h-[90vh] lg:h-[90vh]">
+    <nav class="flex flex-col lg:grid lg:grid-cols-2 h-full">
+      
+      <!-- left -->
+      <div class="pineapple w-full h-[40vh] md:h-full lg:h-full bg-[var(--main-color2)] flex items-center justify-center">
+        <img src="img/contactimage.png" alt="" class="w-full h-full object-cover">
+      </div>
+
+      <!-- right -->
+      <div class="Come bg-[var(--main-color2)] flex flex-col justify-center items-center px-6 py-10 ">
+        <h1 class="text-xl md:text-3xl lg:text-5xl font-bold text-center opacity-50 text-shadowBig mb-6">
+          Contact us
+        </h1>
+        <p class="text-xs md:text-sm lg:text-xl opacity-50 text-shadowBig text-center max-w-xl">
+          Let us know if you have any concern about our website, service or other information you want to have.
+        </p>
+        <div class="pt-[60%] md:pt-[40%] lg:pt-0"></div>
+      </div>
+    
+
+    </nav>
+  </section>
+</main>
+
+
+    <main class="lg:mt-[20%] w-full lg:h-[80vh] bg-[var(--main-color)] ">
+       <section class="contact-us my-10 py-10 container mx-auto px-4 ">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Left side: Form -->
+      <div class="lg:col-span-2 ">
+        <div class="form">
+          <h2 class="mb-6 text-3xl font-bold relative text-white">Get In Touch</h2>
+          
+          <form action="" class="space-y-4 border border-white rounded-lg shadow-md p-6 bg-white">
+            
+            <!-- Username -->
+            <div class="flex items-center border rounded overflow-hidden">
+              <span class="px-3 text-[var(--main-color)]"><i class="fa fa-user"></i></span>
+              <input type="text" placeholder="Username" class="w-full px-3 py-2 focus:outline-none">
+            </div>
+            
+            <!-- Email -->
+            <div class="flex items-center border rounded overflow-hidden">
+              <span class="px-3 text-[var(--main-color)]"><i class="fa fa-envelope"></i></span>
+              <input type="email" placeholder="Email" class="w-full px-3 py-2 focus:outline-none">
+            </div>
+            
+            <!-- Phone -->
+            <div class="flex items-center border rounded overflow-hidden">
+              <span class="px-3 text-[var(--main-color)]"><i class="fa fa-phone"></i></span>
+              <input type="text" placeholder="Phone" class="w-full px-3 py-2 focus:outline-none">
+            </div>
+            
+            <!-- Message -->
+            <div class="border rounded overflow-hidden">
+              <textarea placeholder="Message" class="w-full px-3 py-2 focus:outline-none h-48"></textarea>
+            </div>
+            
+            <!-- Button -->
+            <div class="flex justify-end">
+              <button type="submit" class="bg-white hover:text-white hover:bg-[var(--main-hover-btn)] text-[var(--main-color)] px-6 py-2 rounded-md shadow font-semibold">
+                Send
+              </button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+      
+      <!-- Right side: Contact Info -->
+      <div class="contact-info">
+        <h2 class="mb-6 mt-6 lg:mt-0 text-3xl font-bold relative text-white">Contact Info</h2>
+        
+        <div class="flex flex-col space-y-6">
+          
+          <!-- Location 1 -->
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-location-dot text-white text-xl"></i>
+            <p class="mb-0 text-white">
+              <b>Shop 1</b> <br>
+              #6 StB, Phnom Penh Tmey, Sangkat Sensok
+            </p>
+          </div>
+          
+          <!-- Location 2 -->
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-location-dot text-white text-xl"></i>
+            <p class="mb-0 text-white" >
+              <b>Shop 2</b> <br>
+              #6 StD, Phnom Penh Tmey, Sangkat Sensok
+            </p>
+          </div>
+          
+          <!-- Phone -->
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-phone text-white text-xl"></i>
+            <p class="mb-0 text-white">
+              <b>Phone Number</b> <br>
+              123-276-8031 <br>
+              123-276-8031
+            </p>
+          </div>
+          
+          <!-- Email -->
+          <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-envelope text-white text-xl"></i>
+            <p class="mb-0 text-white">
+              <b>Mail</b> <br>
+              bloombare@gmail.com <br>
+              supportbloombare@gmail.com
+            </p>
+          </div>
+          
+        </div>
+      </div>
+      
+    </div>
+  </section>
+    </main>
+
+<main class="lg:mt-[10%] w-full h-full ">
+    <div class="lg:text-3xl lg:gap-3 font-semibold text-[var(--main-color)] lg:ps-8">
+        
+        <i class="bi bi-pin-map bg-[var(--main-color)] text-white w-[10%] rounded lg:text-2xl lg:p-3"></i>
+        Location
+    </div>
+  <section class="pb-0 lg:pb-5 lg:pt-[2%]">
+    <div class="w-full" data-aos="fade-right">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d62543.52257748638!2d104.91293180929372!3d11.553996800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2skh!4v1750694373498!5m2!1sen!2skh" 
+        class="w-full h-[400px] lg:h-[600px]" 
+        style="border:0;" 
+        allowfullscreen 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+</main>
+
+<footer id="bloombare-footer" class="bg-[var(--main-color)] text-white -10"></footer>
+
+<script src="../JS/index.js"></script>      
+
+</body>
+ <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontSize: {
+                        '10xl': '10rem',
+                        '11xl': '11rem',
+                        '12xl': '12rem',
+                    },
+                      rotate: {
+                        '12': '12deg',
+                        '15': '15deg',
+                        '17': '17deg',
+                        '30': '30deg',
+                        '60': '60deg',
+                    },
+
+                    rounded: {
+                        '5xl': '3rem',
+                    },
+                     borderRadius: {
+                        'custom-lg': '15px',   
+                        'extra-lg': '30px',    
+                    },
+                }
+            }
+        }
+    </script>
+</html>
